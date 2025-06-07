@@ -1,0 +1,21 @@
+die_roll,gold,multiply_gold_by_d20,treasure
+1,50,FALSE,
+2,10,TRUE,
+3,20,TRUE,
+4,20,FALSE,Potions (3)
+5,40,FALSE,Potions (2)
+6,20,FALSE,Scrolls (1)
+7,40,FALSE,Scrolls (2)
+8,0,FALSE,Magic Weapon/Armour
+9,20,FALSE,Magic Weapon/Armour
+10,40,FALSE,Magic Weapon/Armour
+11,0,FALSE,Magic Item
+12,20,FALSE,Magic Item
+13,40,FALSE,Magic Item
+14,0,FALSE,Grimoire
+15,20,FALSE,Grimoire
+16,40,FALSE,Grimoire
+17,60,FALSE,Grimoire
+18,80,FALSE,Grimoire
+19,100,FALSE,Grimoire
+20,120,FALSE,Grimoire

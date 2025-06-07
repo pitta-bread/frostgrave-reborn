@@ -1,0 +1,21 @@
+die_roll,name,effects,purchase,sale
+1,Hand Weapon,1 damage modifier,300,125
+2,Hand Weapon,1 Fight,500,200
+3,Hand Weapon,2 Will,300,125
+4,Two-Handed Weapon,1 damage modifier,300,125
+5,Two-Handed Weapon,1 Fight,500,200
+6,Two-Handed Weapon,2 Will,300,125
+7,Bow,1 damage modifier,300,125
+8,Bow,1 Shoot,600,250
+9,Crossbow,1 damage modifier,300,125
+10,Crossbow,1 Shoot,600,250
+11,Dagger,1 Fight,400,200
+12,Dagger,1 damage modifier,400,150
+13,Dagger,2 damage modifier,500,200
+14,Light Amour,1 Armour,600,200
+15,Heavy Armour,Elemental Absorption,800,300
+16,Ring of Protection,1 Armour,600,250
+17,Cloak of Protection,1 Armour,600,250
+18,Cloak of Night,Elemental Absorption,500,200
+19,Staff,1 Fight,300,125
+20,Shield,1 Armour,700,250

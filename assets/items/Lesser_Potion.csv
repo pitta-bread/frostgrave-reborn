@@ -1,0 +1,21 @@
+die_roll,name,purchase,sale
+1,Potion of Healing,75,50
+2,Potion of Strength,100,40
+3,Potion of Toughness,50,30
+4,Elixir of Speed,50,30
+5,Potion of Invisibility,100,50
+6,Explosive Cocktail,100,30
+7,Potion of Teleportation,500,100
+8,Potion of Elemental Absorption,200,80
+9,Cordial of Clearsight,200,80
+10,Poison,100,30
+11,Philtre of Fury,300,120
+12,Potion of Iron Mind,50,30
+13,Bottle of Burrowing,200,80
+14,Philtre of Fairy Dust,50,30
+15,Construct Oil,100,50
+16,Potion of Fire Breath,200,80
+17,Potion of Preservation,500,200
+18,Elixir of the Chameleon,400,140
+19,Roll on the Greater Potion Table,,
+20,Roll on the Greater Potion Table,,
