@@ -1,0 +1,46 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Ignore test and coverage files
+*.cover
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+
+# Ignore local development files
+*.log
+*.sqlite3
+
+# Ignore Terraform and infrastructure files
+.tf/
+
+# Ignore version control and editor files
+.git/
+.gitignore
+.vscode/
+.github/
+
+# Ignore build and distribution files
+dist/
+build/
+.eggs/
+*.egg-info/
+
+# Ignore Docker-related files that shouldn't be in the image
+.dockerignore
+
+# Ignore Ruff and other tool caches
+.ruff_cache/
+
+# Ignore Jupyter and notebook checkpoints
+.ipynb_checkpoints/
