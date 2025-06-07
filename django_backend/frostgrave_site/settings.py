@@ -10,9 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import sys
 from pathlib import Path
 
 from google.cloud import secretmanager
+
+# Check if the 'runserver' command is being used
+IS_DEVELOPMENT = "runserver" in sys.argv
 
 
 def gcp_access_secret_version(project_id, secret_id, version_id="latest"):
@@ -48,13 +52,16 @@ SECRET_ID = "frostgrave-reborn-django-core"
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = gcp_access_secret_version(project_id=PROJECT_ID, secret_id=SECRET_ID)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['.europe-west2.run.app']
-
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+if IS_DEVELOPMENT:
+    DEBUG = True
+    ALLOWED_HOSTS = ["*"]
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+else:
+    DEBUG = False
+    ALLOWED_HOSTS = [".europe-west2.run.app"]
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -105,7 +112,7 @@ WSGI_APPLICATION = "frostgrave_site.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / ".." / "gcs_bucket" / "frostgrave.db",
+        "NAME": "/mnt/gcs_frostgrave_reborn/frostgrave.db",
     }
 }
 
@@ -144,8 +151,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = f"{BASE_DIR}/../gcs_bucket/static/"
-STATIC_ROOT = f"{BASE_DIR}/../gcs_bucket/static/"
+STATIC_URL = "/mnt/gcs_frostgrave_reborn/static/"
+STATIC_ROOT = STATIC_URL
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
