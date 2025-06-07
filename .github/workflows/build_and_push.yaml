@@ -45,7 +45,7 @@ jobs:
       
       - name: Build Docker image
         run: |
-          docker build -t "${{ steps.read-gcp-ar.outputs.registry_path }}image:latest" .
+          docker build -t "${{ steps.read-gcp-ar.outputs.registry_path }}/image:latest" .
       
       - name: Push Docker image
         run: |
