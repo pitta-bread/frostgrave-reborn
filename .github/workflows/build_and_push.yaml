@@ -60,4 +60,5 @@ jobs:
         run: |
           gcloud run deploy ${{ steps.read-gcp-ar.outputs.service_name }} \
             --image "${{ steps.read-gcp-ar.outputs.registry_path }}/image:latest" \
+            --region "${{ env.GCP_REGION }}" \
             --quiet
