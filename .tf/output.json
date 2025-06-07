@@ -1,0 +1,7 @@
+{
+  "registry_location": {
+    "sensitive": false,
+    "type": "string",
+    "value": "europe-west2-docker.pkg.dev/frostgrave-reborn/frostgrave-reborn"
+  }
+}

@@ -192,3 +192,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+gcs_bucket/frostgrave.db
+
+# gitignore all terraform at .tf/ except for the main.tf and output.json files
+.tf/*
+!.tf/main.tf
+!.tf/output.json

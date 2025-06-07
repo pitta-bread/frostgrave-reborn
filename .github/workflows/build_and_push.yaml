@@ -1,0 +1,41 @@
+# GitHub Actions workflow to build and push Docker image
+name: Build and Push to GCP
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  GCP_REGION: europe-west2
+  GCP_PROJECT_ID: frostgrave-reborn
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Read GCP AR from local json file
+        id: read-gcp-ar
+        run: echo "registry_path=$(jq -r '.registry_location.value' .tf/output.json)" >> $GITHUB_OUTPUT
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+            service_account_key: "${{ secrets.GCP_SA_KEY }}"
+            project_id: "${{ env.GCP_PROJECT_ID }}"
+      
+      - name: Configure Docker to use gcloud as a credential helper
+        run: |
+          gcloud auth configure-docker "${{ env.GCP_REGION }}-docker.pkg.dev" --quiet
+      
+      - name: Build Docker image
+        run: |
+          docker build -t "${{ steps.read-gcp-ar.outputs.registry_path }}:latest" .
+      
+      - name: Push Docker image
+        run: |
+          docker push "${{ steps.read-gcp-ar.outputs.registry_path }}:latest"
