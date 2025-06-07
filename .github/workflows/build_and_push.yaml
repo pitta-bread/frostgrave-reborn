@@ -58,4 +58,6 @@ jobs:
 
       - name: New revision of the Cloud Run service
         run: |
-          gcloud run deploy ${{ steps.read-gcp-ar.outputs.service_name }} --quiet
+          gcloud run deploy ${{ steps.read-gcp-ar.outputs.service_name }} \
+            --image "${{ steps.read-gcp-ar.outputs.registry_path }}/image:latest" \
+            --quiet
