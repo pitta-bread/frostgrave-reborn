@@ -44,3 +44,6 @@ build/
 
 # Ignore Jupyter and notebook checkpoints
 .ipynb_checkpoints/
+
+# We must ignore the gcs_bucket mount, otherwise it will not be mounted correctly
+gcs_bucket/
