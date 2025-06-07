@@ -27,7 +27,8 @@ jobs:
       
       - name: Read GCP AR and CR Service from local json file
         id: read-gcp-ar
-        run: echo "registry_path=$(jq -r '.registry_location.value' .tf/output.json)" >> $GITHUB_OUTPUT && \
+        run: |
+          echo "registry_path=$(jq -r '.registry_location.value' .tf/output.json)" >> $GITHUB_OUTPUT
           echo "service_name=$(jq -r '.service_name.value' .tf/output.json)" >> $GITHUB_OUTPUT
       
       - name: Auth for gcloud
