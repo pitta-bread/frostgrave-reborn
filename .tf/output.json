@@ -3,5 +3,15 @@
     "sensitive": false,
     "type": "string",
     "value": "europe-west2-docker.pkg.dev/frostgrave-reborn/frostgrave-reborn"
+  },
+  "service_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "frostgrave-reborn"
+  },
+  "service_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://frostgrave-reborn-muvvrdwx4q-nw.a.run.app"
   }
 }

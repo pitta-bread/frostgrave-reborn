@@ -25,9 +25,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Read GCP AR from local json file
+      - name: Read GCP AR and CR Service from local json file
         id: read-gcp-ar
-        run: echo "registry_path=$(jq -r '.registry_location.value' .tf/output.json)" >> $GITHUB_OUTPUT
+        run: echo "registry_path=$(jq -r '.registry_location.value' .tf/output.json)" >> $GITHUB_OUTPUT && \
+          echo "service_name=$(jq -r '.service_name.value' .tf/output.json)" >> $GITHUB_OUTPUT
       
       - name: Auth for gcloud
         uses: google-github-actions/auth@v1
@@ -50,3 +51,11 @@ jobs:
       - name: Push Docker image
         run: |
           docker push "${{ steps.read-gcp-ar.outputs.registry_path }}/image:latest"
+
+      - name: Short sleep to ensure image is available
+        run: sleep 5
+
+      - name: New revision of the Cloud Run service
+        run: |
+          gcloud run ${{ steps.read-gcp-ar.outputs.service_name }} \
+            --quiet
