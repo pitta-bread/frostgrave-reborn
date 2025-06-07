@@ -49,9 +49,12 @@ SECRET_ID = "frostgrave-reborn-django-core"
 SECRET_KEY = gcp_access_secret_version(project_id=PROJECT_ID, secret_id=SECRET_ID)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.europe-west2.run.app']
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition

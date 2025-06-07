@@ -21,7 +21,18 @@ resource "google_storage_bucket" "frostgrave_bucket" {
     location      = "EU"
     force_destroy = false
     versioning {
-        enabled = false
+        enabled = true
+    }
+
+    # delete versions older than 7 days, not objects
+    lifecycle_rule {
+        action {
+            type = "Delete"
+        }
+        condition {
+            age = 7
+            with_state = "ARCHIVED"
+        }
     }
 
     uniform_bucket_level_access = true
